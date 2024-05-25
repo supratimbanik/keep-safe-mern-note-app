@@ -17,6 +17,9 @@ function Register(props) {
     };
   }, []);
 
+  // Loading state
+  const [loading, setLoading] = useState(false);
+
   //State for inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +45,7 @@ function Register(props) {
   //Connecting to server on click
   async function handleClick(event) {
     event.preventDefault();
+    setLoading(true); // Set loading to true to indicate API request in progress
     try {
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/register`,
@@ -68,6 +72,8 @@ function Register(props) {
     } catch (err) {
       setError("Internal error!");
       console.log("Error sending data!");
+    } finally {
+      setLoading(false); // Set loading to false after API request is complete
     }
   }
 
@@ -91,6 +97,7 @@ function Register(props) {
               name="email"
               placeholder="Email ID"
               value={email}
+              disabled={loading} // Disable input when loading
             />
             <input
               type="password"
@@ -98,6 +105,7 @@ function Register(props) {
               name="password"
               placeholder="Password"
               value={password}
+              disabled={loading} // Disable input when loading
             />
             <input
               type="password"
@@ -105,6 +113,7 @@ function Register(props) {
               name="confirm"
               placeholder="Confirm Password"
               value={confirm}
+              disabled={loading} // Disable input when loading
             />
 
             <button
@@ -115,7 +124,7 @@ function Register(props) {
                 setConfirm("");
               }}
             >
-              Register
+              {loading ? "Wait..." : "Register"}
             </button>
           </form>
           <div className="login-text">

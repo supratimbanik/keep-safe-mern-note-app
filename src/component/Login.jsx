@@ -17,6 +17,8 @@ function Login(props) {
     };
   }, []);
 
+  //Laoding state
+  const [loading, setLoading] = useState(false);
   //State for error
   const [errorMessage, setError] = useState("");
 
@@ -37,6 +39,7 @@ function Login(props) {
   //Connecting to server on click
   async function handleClick(event) {
     event.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch(`${process.env.REACT_APP_BASE_URL}/login`, {
         method: "POST",
@@ -59,6 +62,8 @@ function Login(props) {
     } catch (err) {
       setError("Internal error!");
       console.log("Error sending data! ");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -82,6 +87,7 @@ function Login(props) {
               onChange={handleInput}
               placeholder="Email ID"
               value={email}
+              disabled={loading} // Disable input when loading
             />
             <input
               type="password"
@@ -89,6 +95,7 @@ function Login(props) {
               onChange={handleInput}
               placeholder="Password"
               value={password}
+              disabled={loading} // Disable input when loading
             />
             <button
               onClick={(event) => {
@@ -97,7 +104,7 @@ function Login(props) {
                 setPassword("");
               }}
             >
-              LogIn
+              {loading ? "Wait..." : "Login"}
             </button>
           </form>
           <div className="login-text">
