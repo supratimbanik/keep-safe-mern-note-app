@@ -72,7 +72,7 @@ app.post("/login", async (req, res) => {
 
   if (!isValidEmail(email)) {
     console.log("Invalid email address!");
-    return res.status(400).send("Invalid email address!");
+    return res.status(400).json({ message: "Invalid email address!" });
   }
 
   //Login conditions checked
@@ -114,7 +114,7 @@ app.post("/register", async (req, res) => {
   //Check if email is valid
   if (!isValidEmail(email)) {
     console.log("Invalid email address!");
-    return res.status(400).send("Invalid email address!");
+    return res.status(400).json({ message: "Invalid email address!" });
   }
 
   //Registration conditions checked
@@ -163,7 +163,7 @@ app.post("/reset", async (req, res) => {
   //Check if email is valid
   if (!isValidEmail(email)) {
     console.log("Invalid email address!");
-    return res.status(400).send("Invalid email address!");
+    return res.status(400).json({ message: "Invalid email address!" });
   }
 
   //Reset conditions checked
