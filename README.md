@@ -23,7 +23,6 @@ KeepSafe is a simple and secure note-taking application that prioritizes user pr
 - **Node.js:** The backend of the application is built using Node.js, a server-side JavaScript runtime environment.
 - **Express:** Express.js is used as the web application framework for Node.js, providing a robust set of features for building web applications.
 - **MongoDB:** MongoDB is used as the database to store user information and notes securely.
-- **JSON Web Tokens (JWT):** JWT is used for user authentication and authorization, allowing users to securely log in and access their notes.
 
 ## Installation
 
