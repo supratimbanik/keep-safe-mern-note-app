@@ -91,4 +91,4 @@ To set up the backend server,
 
 ## License
 
-Copyright (c) [year] [Supratim Banik]
+Copyright (c) [Supratim Banik]
