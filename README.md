@@ -87,7 +87,7 @@ To set up the backend server,
 
 ## Contributors
 
-- Supratim Banik (https://github.com/supratimbanik)
+- [Supratim Banik](https://github.com/supratimbanik)
 
 ## License
 
